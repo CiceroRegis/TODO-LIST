@@ -1,12 +1,20 @@
 # TODO LIST
 
-## Instalation
+### Requirement
+- Git
+- Ruby
+- Rails
+- postgresql
 
-First make sure you have `ruby` and the `gem bundler` installed. Also make sure you have `Postgresql` installed.
+##### Clone this repository:
+```bash
+git clone https://github.com/CiceroRegis/TODO-LIST.git
+```
 
-### Mandatory steps
-*  Run `bundle install`
-
+##### go into the directory:
+```bash
+cd todo
+```
 
 #### DB Config
 ```
@@ -15,6 +23,12 @@ POSTGRESQL_PASSWORD: '[your_postgresql_db_password]'
 POSTGRESQL_HOST: '127.0.0.1'
 ```
 
+## Instalation
+
+First make sure you have `ruby` and the `gem bundler` installed. Also make sure you have `Postgresql` installed.
+
+### Mandatory steps
+*  Run `bundle install`
 
 ## Getting Started
 In your CLI:
