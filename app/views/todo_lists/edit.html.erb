@@ -1,0 +1,12 @@
+<h1>Editar Todo List</h1>
+
+<%= render "form", todo_list: @todo_list %>
+
+ 
+<%= link_to(todo_list_path, title: "Voltar") do %>  
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    <% end %>
+    |
+    <%= link_to(@todo_list, title: "Mostrar detalhes") do %>  
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <% end %>

@@ -1,0 +1,58 @@
+<% if current_user %>
+ <b style="font-size:18px;"> Logado com <%= current_user.email %></b>.
+  <b style="font-size:18px;"><%= link_to "Log Out", logout_path %>
+  <i class="fas fa-long-arrow-alt-left"></i>
+  </b>
+<p id="notice"><%= notice %></p>
+
+<% if notice %>
+  <div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= notice %>
+  </div>
+<% end %>
+
+<div id="todo_list">
+<%= form_tag(todo_lists_path, :method => "get") do %>
+  <p class="form-inline"> <%= text_field_tag "search", nil, placeholder: "Digita o titulo da tarefa", :class => "form-control" %>
+    <%= submit_tag "Pesquisar", :class => "btn btn-outline-primary my-2 my-sm-0" %></p>
+<% end %>
+  <h1>
+    Tarefas
+    <%= link_to(new_todo_list_path, title: "Adicionar tarefa") do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
+  </h1>
+  <% @todo_lists.each do |todo_list| %>
+    <div class="todo_list">
+      <% if todo_list.completed %>
+        <%= link_to(complete_todo_path(todo_list), title: "Desfazer tarefa", class: "desfazer-tarefa") do %>
+          <i class="fas fa-times"></i>
+        <% end %>
+      <% else %>
+        <%= link_to(complete_todo_path(todo_list), title: "Finalizar tarefa", class: "finalizar-tarefa") do %>
+          <i class="fas fa-check"></i>
+        <% end %>
+      <% end %>
+      <span><%= todo_list.title %></span>
+      <%= link_to(todo_list, title: "Mostrar tarefa") do %>
+        <i class="fas fa-eye"></i>
+      <% end %>
+      <%= link_to(edit_todo_list_path(todo_list), title: "Editar tarefa") do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+      <%= link_to(todo_list, method: :delete, data: { confirm: "Are you sure?" }, title: "Excluir tarefa") do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<% else %>
+<h1>TODO LIST</h1>
+<nav class="navbar navbar-dark bg-dark">
+<span class="navbar-text">
+  <%= link_to "Criar novo usuário", signup_path %> <b>|</b>
+  <%= link_to "Fazer Login", login_path %>
+  <span>
+  </nav>
+<% end %>

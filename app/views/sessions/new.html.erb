@@ -1,0 +1,21 @@
+<div id="todo_list">
+<div class="container">
+  <p id="alert"><%= alert %></p>
+  <h1>Login</h1>
+  <%= form_tag sessions_path do |form| %>
+    <form>
+    <div class="form-group">
+      <%= label_tag :email %>
+      <%= text_field_tag "email", nil, placeholder: "Email", :class => "form-control" %>
+  <div>
+  <div class="form-group">
+      <%= label_tag :password %>
+      <%= text_field_tag "password", nil, :type => "password", placeholder: "Senha", :class => "form-control" %>
+    </div>
+    <div class="actions">
+    <%= submit_tag "Login", :class => "btn btn-outline-primary my-2 my-sm-0" %>
+  <% end %>
+    </form>
+    </div>
+  </div>
+  </div>
